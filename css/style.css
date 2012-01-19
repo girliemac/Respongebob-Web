@@ -26,6 +26,8 @@ section {
 	width: 100%;
 	height: 100%;
 	padding: 1.5em;
+	-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
 nav {
@@ -47,13 +49,26 @@ img {
 /* Large screens - Default */
 
 section {
-	background: url(../images/spongebob-lg.png) right top no-repeat;
+	background: url(../images/spongebob-xl.png) right top no-repeat;
 }
 nav {
 	width: 400px;
 }
 nav, article {
 	min-height: 600px;
+}
+
+/* Smaller than standard 960px width */
+@media only screen and (max-width: 959px) {
+	section {
+		background: url(../images/spongebob-lg.png) right top no-repeat;
+	}
+	nav {
+		width: 300px;
+	}
+	nav, article {
+		min-height: 483px;
+	}
 }
 
 /* Common Tablets */
