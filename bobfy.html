@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!-- Adapted to work with the getUserMedia API using code from http://wesbos.com/html5-video-face-detection-canvas-javascript/ -->
+<!-- Adapted to work with the getUserMedia API using code from http://wesbos.com/html5-video-face-detection-canvas-javascript/ and https://github.com/neave/face-detection -->
 	<head>
 		<meta charset="utf-8">
 		<title>You can be Bob!!! HTML5 Face Detection with getUserMedia API Demo</title>
@@ -15,10 +15,7 @@
 		<script src="js/face.js"></script>
 
 		<script>
-		/* 
-		*  face-detection by neave https://github.com/neave/face-detection
-		*/
-
+ 
 		// requestAnimationFrame shim
 		(function() {
 			var i = 0,
@@ -74,17 +71,16 @@
 				App.video.src = domURL ? domURL.createObjectURL(stream) : stream;
 			},
 			denied: function() {
-				App.info.innerHTML = 'Camera access denied!<br>Please reload and try again.';
+				App.info.innerHTML = '<img src="images/alert.png" style="position:relative;top:18px;"/> Camera access denied!';
 			},
 			error: function(e) {
 				if (e) {
 					console.error(e);
 				}
-				App.info.innerHTML = 'Please go to about:flags in Google Chrome and enable the &quot;MediaStream&quot; flag.';
+				App.info.innerHTML = '<img src="images/alert.png" style="position:relative;top:18px;"/> Your browser does not support getUserMedia(), <br/>or if you are on Chrome, go to about:flags and enable the &quot;MediaStream&quot;.';
 			},
 			drawToCanvas: function() {
 				requestAnimationFrame(App.drawToCanvas);
-				
 				var video = App.video,
 					ctx = App.context,
 					backCtx = App.backContext,
