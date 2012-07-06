@@ -1,3 +1,15 @@
+/* Base */
+article,
+aside,
+figure,
+footer,
+header,
+hgroup,
+nav,
+section {
+  display: block;
+}
+
 /* Common CSS for all screen resolutions */
 
 body {
@@ -22,7 +34,7 @@ header p {
 	text-shadow: 0px 1px 1px #deeaea;
 	margin: 0;
 }
-section {
+section#main {
 	width: 100%;
 	height: 100%;
 	padding: 1.5em;
@@ -30,13 +42,13 @@ section {
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;
 }
-article {
+.lyrics {
 	font: 1.2em/150% "Alice", serif;
 }
-article.media {
+.media {
 	float: right;
 }
-footer p {
+footer {
 	padding: 1.5em;
 	font-size: .75em;
 }
@@ -83,8 +95,9 @@ img {
 
 /* *** Making it responsive *** */
 
-section {
-	background: url(../images/spongebob-lg.png) right top no-repeat;
+/* default */
+section#main {
+	background: url(../images/spongebob-md.png) right top no-repeat;
 }
 article {
 	min-height: 483px;
@@ -99,64 +112,8 @@ article.media {
 	left: -74px;
 }
 
-/* Large Desktops */
-@media only screen and (min-width : 1024px) {
-	section {
-		background: url(../images/spongebob-xl.png) right top no-repeat;
-	}
-	article {
-		min-height: 600px;
-	}
-	article.media {
-		width: 400px;
-	}
-	.comic-container {
-		position: relative;
-		top: 250px;
-		left: -160px;
-	}
-}
-
-
-/* Tablets */
-
-@media only screen and (max-width: 768px),
-	   only screen and (max-width: 768px) and (orientation:portrait) {
-	h1 {
-		font-size: 3em;
-	}
-	section {
-		background: url(../images/spongebob-md.png) right top no-repeat;
-	}
-	article {
-		min-height: 365px;
-	}
-	article {
-		float: none;
-		width: auto;
-		min-height: 320px;
-		font-size: 1em;
-	}
-	article.media {
-		width: 240px;
-	}
-	.comic-container {
-		position: relative;
-		top: 335px;
-		left: 0;
-	}
-	.comic:after {
-	    border: 2px solid #264c4b;
-	    border-width: 2px 0 0 2px;
-	    bottom: 57px;
-	    right: 54px;
-	}
-}
-
 /* Mobile Phones */
-@media only screen and (max-width: 480px),
-	   only screen and (max-device-width: 480px) {
-		
+@media only screen and (max-width: 480px) {		
 	body {
 		background-color: #f9ed39;
 	}
@@ -166,7 +123,7 @@ article.media {
 	header p {
 		font-size: 1em;
 	}
-	section {
+	section#main {
 		background: url(../images/spongebob-sm.png) center top no-repeat;
 	}
 	article {
@@ -193,6 +150,61 @@ article.media {
 	    right: 54px;
 	}
 }
+
+/* Tablets */
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+	h1 {
+		font-size: 3em;
+	}
+	section#main {
+		background: url(../images/spongebob-md.png) right top no-repeat;
+	}
+	article {
+		min-height: 365px;
+		font-size: 1em;
+	}
+	article.media {
+		width: 240px;
+	}
+	.comic-container {
+		position: relative;
+		top: 335px;
+		left: 0;
+	}
+	.comic:after {
+	    border: 2px solid #264c4b;
+	    border-width: 2px 0 0 2px;
+	    bottom: 57px;
+	    right: 54px;
+	}
+}
+
+/* Notebook Desktops */
+@media only screen and (min-width : 769px) {
+	section#main {
+		background: url(../images/spongebob-lg.png) right top no-repeat;
+	}
+}
+
+/* Large Desktops */
+@media only screen and (min-width : 1024px) {
+	section#main {
+		background: url(../images/spongebob-xl.png) right top no-repeat;
+	}
+	article {
+		min-height: 600px;
+	}
+	article.media {
+		width: 400px;
+	}
+	.comic-container {
+		position: relative;
+		top: 250px;
+		left: -160px;
+	}
+}
+
 
 /* Hi-dpi */
 @media only screen and (-webkit-min-device-pixel-ratio: 1.5),
@@ -223,7 +235,7 @@ article.media {
 	height: 30px;
 	top: 50%;
 	margin-top: -15px;
-	font: 1.5em/150% "Lobster", sans-serif;
+	font: 1.5em/150% "Alice", sans-serif;
 }
 
 #output {
